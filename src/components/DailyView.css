@@ -1,0 +1,229 @@
+/* ========== DAILY VIEW ========== */
+.daily-view {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.daily-header {
+  margin-bottom: 16px;
+}
+
+.daily-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.daily-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ========== DAY SELECTOR ========== */
+.day-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
+.day-select-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: rgba(255,255,255,0.04);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-select-btn:hover {
+  border-color: #3b82f6;
+  color: var(--text-primary);
+  background: rgba(59,130,246,0.1);
+}
+
+.day-select-btn.active {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 0 16px rgba(59,130,246,0.4);
+  transform: scale(1.1);
+}
+
+/* ========== DAILY PROGRESS ========== */
+.daily-progress-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.daily-progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.daily-progress-info h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.daily-progress-count {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.daily-bar-container {
+  width: 100%;
+  height: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.daily-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #10b981);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+/* ========== DAILY TOPICS ========== */
+.daily-topics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.daily-topic-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--subject-color);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.2s;
+}
+
+.daily-topic-card:hover {
+  border-color: var(--subject-color);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+.daily-topic-card.daily-completed {
+  background: rgba(34, 197, 94, 0.06);
+  border-color: rgba(34, 197, 94, 0.2);
+  border-left-color: var(--success);
+}
+
+.daily-topic-left {
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.daily-check {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  background: rgba(255,255,255,0.06);
+  border: 2.5px solid rgba(255,255,255,0.15);
+  transition: all 0.3s;
+  user-select: none;
+  color: var(--text-muted);
+}
+
+.daily-check:hover {
+  border-color: var(--subject-color);
+  transform: scale(1.1);
+}
+
+.daily-check.checked {
+  background: var(--success);
+  color: white;
+  border-color: var(--success);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+}
+
+.daily-topic-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.daily-topic-subject {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--subject-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.daily-topic-icon {
+  font-size: 0.9rem;
+}
+
+.daily-topic-text {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.daily-completed .daily-topic-text {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.no-topics {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+  .day-selector {
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .day-select-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 0.75rem;
+  }
+
+  .daily-topic-card {
+    padding: 12px;
+  }
+
+  .daily-topic-text {
+    font-size: 0.82rem;
+  }
+}
+

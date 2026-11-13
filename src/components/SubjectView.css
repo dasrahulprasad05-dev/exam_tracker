@@ -1,0 +1,354 @@
+/* ========== SUBJECT VIEW ========== */
+.subject-view {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.subject-header {
+  background: linear-gradient(135deg, #1e3a5f, #1e1b4b);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.subject-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--subject-color);
+}
+
+.subject-header-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.subject-view-icon {
+  font-size: 2.2rem;
+}
+
+.subject-view-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.subject-header-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.subject-header-progress {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.progress-ring-container {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.ring-bg {
+  fill: none;
+  stroke: rgba(255,255,255,0.08);
+  stroke-width: 6;
+}
+
+.ring-progress {
+  fill: none;
+  stroke: var(--subject-color);
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+.ring-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.progress-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.progress-count {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.progress-label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.delete-subject-btn {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.delete-subject-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+}
+
+/* ========== DAYS LIST ========== */
+.days-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.day-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.2s;
+}
+
+.day-card:hover {
+  border-color: var(--subject-color);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+.day-card.day-completed {
+  background: rgba(34, 197, 94, 0.06);
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.day-left {
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.day-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: rgba(255,255,255,0.06);
+  color: var(--text-muted);
+  border: 2.5px solid rgba(255,255,255,0.15);
+  transition: all 0.3s;
+  user-select: none;
+}
+
+.day-circle:hover {
+  border-color: var(--subject-color);
+  background: rgba(255,255,255,0.1);
+  transform: scale(1.1);
+}
+
+.day-circle.checked {
+  background: var(--success);
+  color: white;
+  border-color: var(--success);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+  font-size: 1.1rem;
+}
+
+.day-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.day-number {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--subject-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.day-topic {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.day-completed .day-topic {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.day-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.day-action-btn {
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  opacity: 0.5;
+}
+
+.day-card:hover .day-action-btn {
+  opacity: 1;
+}
+
+.day-action-btn:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* ========== ADD DAY ========== */
+.add-day-btn {
+  width: 100%;
+  padding: 14px;
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius);
+  background: none;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-day-btn:hover {
+  border-color: var(--subject-color);
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.03);
+}
+
+.add-day-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.add-day-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-family: inherit;
+  margin-bottom: 10px;
+}
+
+.add-day-input:focus {
+  outline: none;
+  border-color: var(--subject-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.add-day-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.add-day-save {
+  padding: 8px 20px;
+  background: var(--subject-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-day-save:hover {
+  filter: brightness(1.15);
+}
+
+.add-day-cancel {
+  padding: 8px 20px;
+  background: rgba(255,255,255,0.08);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-day-cancel:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+  .subject-header {
+    padding: 18px 14px;
+  }
+
+  .subject-view-name {
+    font-size: 1.2rem;
+  }
+
+  .subject-header-stats {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .day-card {
+    padding: 12px;
+  }
+
+  .day-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.78rem;
+  }
+
+  .day-topic {
+    font-size: 0.82rem;
+  }
+}
+
